@@ -1,0 +1,442 @@
+.App {
+    background-image: url('./wallpaperPrincipal.jpg');
+    height: auto;
+
+    header {
+        font-family: 'Miltonian Tattoo', cursive;
+        background-color: #161515;
+        height: 130px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        #logo {
+            width: auto;
+            height: 100px;
+            margin-left: 80px;
+            margin-top: 15px;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+            font-size: 35px;
+            margin-top: auto;
+            margin-right: 200px;
+            margin-bottom: 15px;
+
+            a {
+                color: rgb(255, 255, 255);
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: rgb(240, 132, 175);
+                text-decoration: underline;
+            }
+        }
+
+        i {
+            color: white;
+            font-size: 25px;
+            margin-right: 100px;
+        }
+
+        // Estilos para o botão de menu hamburguer
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            color: white;
+            margin-right: 100px;
+            cursor: pointer;
+        }
+
+        // Responsivo para telas menores que 1500px
+        @media (max-width: 1500px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 130px;
+                right: 0;
+                background-color: #161515;
+                padding: 20px;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                z-index: 1000;
+            }
+
+            .show-menu {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            #logo {
+                margin-left: 20px;
+            }
+
+            i {
+                margin-right: 20px;
+            }
+        }
+    }
+
+    .secaoHome {
+        width: 1400px;
+        height: 700px;
+        margin-left: 300px;
+        margin-top: 100px;
+        display: flex;
+        gap: 170px;
+
+
+        .esquerdaHome {
+            img {
+                width: 800px;
+                height: auto;
+                display: block;
+                filter: brightness(1.5);
+
+            }
+
+            #titulo1 {
+                position: absolute;
+                /* Posiciona o texto sobre a imagem */
+                top: 34%;
+                /* Ajuste conforme necessário */
+                left: 20%;
+                /* Centraliza horizontalmente */
+                color: white;
+                /* Cor do texto */
+                font-size: 45px;
+                /* Tamanho da fonte */
+                font-weight: bold;
+                /* Negrito opcional */
+            }
+
+            #text1 {
+                width: 600px;
+                font-family: 'Miltonian Tattoo', cursive;
+                position: absolute;
+                /* Posiciona o texto sobre a imagem */
+                top: 48%;
+                /* Ajuste conforme necessário */
+                left: 22%;
+                /* Centraliza horizontalmente */
+                color: rgb(255, 255, 255);
+                /* Cor do texto */
+                font-size: 29px;
+                /* Tamanho da fonte */
+
+
+            }
+        }
+
+        .direitaHome img {
+            margin-top: 30px;
+            border-radius: 20px;
+            width: 900px;
+            /* Ajusta a largura automaticamente */
+            height: auto;
+            /* Mantém a proporção */
+            max-width: 500px;
+            /* Limita a largura máxima */
+            max-height: auto;
+            /* Limita a altura máxima, se necessário */
+
+        }
+    }
+
+    #tituloSecao2 {
+        font-family: 'Miltonian Tattoo', cursive;
+        color: white;
+        margin-left: 800px;
+        font-size: 42px;
+    }
+
+    .secaoSobre {
+        width: 1400px;
+        height: 500px;
+        margin-left: 300px;
+        margin-top: 100px;
+        display: flex;
+        gap: 170px;
+    }
+
+    #artista {
+        width: 500px;
+    }
+
+    .direitaSobre {
+
+
+        img {
+            //imagem seçao sobre
+            width: 800px;
+            display: block;
+            filter: brightness(1.5);
+        }
+
+        #text1 {
+            color: rgb(255, 255, 255);
+            position: absolute;
+            top: 123%;
+            font-size: 30px;
+            width: 600px;
+            left: 57%;
+            font-family: 'Miltonian Tattoo', cursive;
+        }
+    }
+
+    .secaoGaleria {
+
+        #tituloSecao3 {
+
+            font-family: 'Miltonian Tattoo', cursive;
+            color: white;
+            margin-top: 200px;
+            margin-left: 800px;
+            font-size: 42px;
+        }
+
+        .CaixadeImages {
+            margin-top: 100px;
+            border-radius: 20px;
+            margin-left: 300px;
+            width: 1320px;
+            height: 600px;
+            background-color: rgb(12, 12, 12, 0.7);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* 4 colunas */
+            grid-template-rows: repeat(2, 1fr);
+            /* 2 linhas */
+            gap: 10px;
+            /* Espaço entre as imagens */
+            padding: 20px;
+
+            /* Ajuste opcional para dar um espaço interno */
+            #GaleriaImg {
+                border-radius: 20px;
+                background-color: rgb(181, 219, 219);
+                width: 300px;
+                height: 300px;
+            }
+
+        }
+
+    }
+
+    .secaoServico {
+
+        #titulosecao4 {
+            font-family: 'Miltonian Tattoo', cursive;
+            color: white;
+            margin-top: 200px;
+            margin-left: 900px;
+            font-size: 42px;
+
+        }
+
+        .caixaServicos {
+            margin-top: 100px;
+            border-radius: 20px;
+            margin-left: 400px;
+            width: 930px;
+            height: 500px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* 3 colunas */
+            grid-template-rows: repeat(2, 1fr);
+            /* 2 linhas */
+            gap: 100px;
+            /* Espaço entre as imagens */
+            padding: 20px;
+
+
+
+        }
+
+        #servicosImg {
+            width: 300px;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        #textService {
+            margin-left: 480px;
+            display: flex;
+            gap: 190px;
+
+            h2 {
+                font-family: 'Miltonian Tattoo', cursive;
+                font-size: 42px;
+                color: white;
+            }
+        }
+
+    }
+
+    .secaoDepoimentos {
+        h1 {
+            font-family: 'Miltonian Tattoo', cursive;
+            color: white;
+            margin-top: 200px;
+            margin-left: 820px;
+            font-size: 42px;
+        }
+
+        .caixaDepoimentos {
+            padding: 15px;
+            margin-top: 100px;
+            border-radius: 20px;
+            margin-left: 280px;
+            width: 1390px;
+            height: 600px;
+            background-color: rgb(12, 12, 12, 0.9);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* 2 colunas */
+            grid-template-rows: repeat(2, 1fr);
+            /* 2 linhas */
+
+            #Depoimento {
+
+                border-radius: 20px;
+                background-image: url('./imgDepoimentos.png');
+                width: 95%;
+                height: 70%;
+                background-repeat: no-repeat;
+
+                h2 {
+                    margin-top: 50px;
+                    font-family: 'Miltonian Tattoo', cursive;
+                    margin-left: 150px;
+                    color: white;
+                }
+
+                #coment {
+                    font-family: 'Miltonian Tattoo', cursive;
+                    margin-left: 100px;
+                    border-radius: 10px;
+                    color: white;
+                    width: 72%;
+                    height: 80px;
+                    font-size: 20px;
+                }
+            }
+
+        }
+    }
+
+    .secaoAgenda{
+        h1{
+            font-family: 'Miltonian Tattoo', cursive;
+            color: white;
+            margin-top: 100px;
+            margin-left: 820px;
+            font-size: 42px;
+        }
+
+        #FormularioServicos{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* 2 colunas */
+            grid-template-rows: repeat(2, 1fr);
+            /* 2 linhas */
+            border-radius: 20px;
+            background-color: rgb(12, 12, 12, 0.9);
+            margin-left: 450px;
+            width: 1000px;
+            height: 400px;
+            padding: 20px;
+        }
+#opc{
+
+    p{
+        color: white;
+        font-family: 'Miltonian Tattoo', cursive;
+        font-size: 42px;
+    }
+    input{
+        margin-left: 20px;
+        padding-left: 150px;
+        border-radius: 20px;
+        width: 300px;
+        height: 70px;
+    }
+    button{
+        font-family: 'Miltonian Tattoo', cursive;
+        font-size: 32px;
+        margin-left: 250px;
+        margin-top: 15px;
+        border-radius: 25px;
+        width: 200px;
+        height: 60px;
+    }
+}
+        
+    }
+    
+    .secaoRedes{
+        h1{
+            font-family: 'Miltonian Tattoo', cursive;
+            color: white;
+            margin-top: 100px;
+            margin-left: 820px;
+            font-size: 42px;
+        }
+        div{
+            margin-left: 500px;
+            background-image: url('./retratoTexto.png');
+            width: 1000px;
+            height: 650px;
+            background-size: cover;
+            display: block;
+            
+
+            i,p{
+                font-family: 'Miltonian Tattoo', cursive;
+            color: white;
+         font-size: 42px;
+        position: relative;
+        
+        top: 25%;
+        left: 35%;
+
+            }
+        }
+    }
+
+    footer{
+        margin-top: 150px;
+        background-color: #161515;
+        width: auto;
+        height: 250px;
+        display: flex;
+
+        #logoF{
+            padding: 50px;
+            padding-left: 230px;
+            width: 350px;
+            height: 150px;
+        }
+        p{
+            font-family: 'Miltonian Tattoo', cursive;
+            color: white;
+            margin-top: 50px;
+            margin-left: 90px;
+            font-size: 36px; 
+        }
+        #rua{
+            margin-top: 20px;
+            margin-left: 100px;
+            height: 200px;
+        }
+    }
+}
