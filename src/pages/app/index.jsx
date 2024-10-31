@@ -4,10 +4,8 @@ import { useState } from 'react';
 
 
 export default function App() {
-  // Estado para controlar se o menu está visível
   const [menuVisible, setMenuVisible] = useState(false);
 
-  // Função para alternar a visibilidade do menu
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
   };
@@ -21,12 +19,12 @@ export default function App() {
         </div>
 
         <nav className={menuVisible ? 'show-menu' : ''}>
-          <a href="#">Home</a>
+          <a href="#secaoHome">Home</a>
           <a href="#tituloSecao2">Sobre</a>
           <a href="#tituloSecao3">Galeria</a>
-          <a href="#">Serviços</a>
-          <a href="#">Depoimentos</a>
-          <a href="#">Agendar</a>
+          <a href="#titulosecao4">Serviços</a>
+          <a href="#tituloDepoimentos">Depoimentos</a>
+          <a href="#titulo5">Agendar</a>
         </nav>
 
         <Link to="/login">
@@ -152,9 +150,9 @@ export default function App() {
 <h1 id='titulo6'>Redes Sociais</h1>
 
 <div>
- <i>Facebook</i><p> @Vegas.studio</p>
- <i>Instagram</i><p> @Vegas.Tatuagem</p>
- <i>Youtube</i><p> Vegas Films</p>
+<p><i class="fa-brands fa-facebook"></i> @Vegas.studio</p>
+ <p><i class="fa-brands fa-instagram"></i> @Vegas.Tatuagem</p>
+ <p><i class="fa-brands fa-youtube"></i> Vegas Films</p>
 </div>
 
 </section>

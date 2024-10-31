@@ -4,9 +4,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './pages/app/index';
 import Login from './pages/login'
 import NaoEncontrado from './pages/naoEncontrado';
-
-
-export default function Navegacao(){
+import Adm from './pages/adm'
+import MeusDados from './pages/meusDados'
+export default function Navegacao() {
     return (
         <BrowserRouter>
             <Routes>
@@ -14,8 +14,9 @@ export default function Navegacao(){
 
                 <Route path='/' element={<App />} />
                 <Route path='/login' element={<Login />} />
-
-<Route path='*' element={<NaoEncontrado/>}/>
+                <Route path='/adm' element={< Adm />} />
+                <Route path='/data' element={<MeusDados />} />
+                <Route path='*' element={<NaoEncontrado />} />
             </Routes>
         </BrowserRouter>
     )
