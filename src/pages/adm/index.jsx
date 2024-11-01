@@ -15,11 +15,11 @@ export default function Adm() {
 <div id='painelTexto' >
 <p>Editar Depoimentos</p>
 </div>
-
+<Link to={'/galeria'} >
 <div id='painelTexto' >
 <p>Editar Galeria</p>
 </div>
-
+</Link>
 <Link className='Link'
 to={'/data'} > 
 <div id='painelTexto' >

@@ -5,7 +5,8 @@ import App from './pages/app/index';
 import Login from './pages/login'
 import NaoEncontrado from './pages/naoEncontrado';
 import Adm from './pages/adm'
-import MeusDados from './pages/meusDados'
+import MeusDados from './pages/meusDados';
+import Galeria from './pages/galeria';
 export default function Navegacao() {
     return (
         <BrowserRouter>
@@ -16,6 +17,7 @@ export default function Navegacao() {
                 <Route path='/login' element={<Login />} />
                 <Route path='/adm' element={< Adm />} />
                 <Route path='/data' element={<MeusDados />} />
+                <Route path='/galeria' element={<Galeria/>}/>
                 <Route path='*' element={<NaoEncontrado />} />
             </Routes>
         </BrowserRouter>
