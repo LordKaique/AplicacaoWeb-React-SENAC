@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import './index.scss';
 import { Link, useNavigate } from 'react-router-dom'; // Importando o useNavigate
 import React, { useState } from 'react';
@@ -68,3 +69,14 @@ export default function Login() {
     </div>
   );
 }
+=======
+import './index.scss'
+
+export default function Contato(){
+    return (
+        <div className="pagina-contato pagina" >
+<h1>Pagina de login</h1>
+        </div>
+    )
+}
+>>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a

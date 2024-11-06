@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+<<<<<<< HEAD
     "axios": "^1.7.7",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
@@ -15,6 +16,8 @@
     "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
     "mysql2": "^3.11.3",
+=======
+>>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",
@@ -23,9 +26,16 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+<<<<<<< HEAD
     "client": "react-scripts start",
     "server": "node server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
+=======
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+>>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
   },
   "eslintConfig": {
     "extends": [
@@ -44,9 +54,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+<<<<<<< HEAD
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "concurrently": "^9.1.0"
+=======
+>>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
   }
 }

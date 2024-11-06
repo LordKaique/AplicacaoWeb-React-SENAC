@@ -334,8 +334,13 @@
         }
     }
 
+<<<<<<< HEAD
     .secaoAgenda {
         h1 {
+=======
+    .secaoAgenda{
+        h1{
+>>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
             font-family: 'Miltonian Tattoo', cursive;
             color: white;
             margin-top: 100px;
@@ -343,7 +348,11 @@
             font-size: 42px;
         }
 
+<<<<<<< HEAD
         #FormularioServicos {
+=======
+        #FormularioServicos{
+>>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             /* 2 colunas */
@@ -356,6 +365,7 @@
             height: 400px;
             padding: 20px;
         }
+<<<<<<< HEAD
 
         #opc {
 
@@ -388,20 +398,56 @@
 
     .secaoRedes {
         h1 {
+=======
+#opc{
+
+    p{
+        color: white;
+        font-family: 'Miltonian Tattoo', cursive;
+        font-size: 42px;
+    }
+    input{
+        margin-left: 20px;
+        padding-left: 150px;
+        border-radius: 20px;
+        width: 300px;
+        height: 70px;
+    }
+    button{
+        font-family: 'Miltonian Tattoo', cursive;
+        font-size: 32px;
+        margin-left: 250px;
+        margin-top: 15px;
+        border-radius: 25px;
+        width: 200px;
+        height: 60px;
+    }
+}
+        
+    }
+    
+    .secaoRedes{
+        h1{
+>>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
             font-family: 'Miltonian Tattoo', cursive;
             color: white;
             margin-top: 100px;
             margin-left: 820px;
             font-size: 42px;
         }
+<<<<<<< HEAD
 
         div {
+=======
+        div{
+>>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
             margin-left: 500px;
             background-image: url('./retratoTexto.png');
             width: 1000px;
             height: 650px;
             background-size: cover;
             display: block;
+<<<<<<< HEAD
 
 
             p {
@@ -415,34 +461,64 @@
             }
 
             i {
+=======
+            
+
+            i,p{
+                font-family: 'Miltonian Tattoo', cursive;
+            color: white;
+         font-size: 42px;
+        position: relative;
+        
+        top: 25%;
+        left: 35%;
+>>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
 
             }
         }
     }
 
+<<<<<<< HEAD
     footer {
+=======
+    footer{
+>>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
         margin-top: 150px;
         background-color: #161515;
         width: auto;
         height: 250px;
         display: flex;
 
+<<<<<<< HEAD
         #logoF {
+=======
+        #logoF{
+>>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
             padding: 50px;
             padding-left: 230px;
             width: 350px;
             height: 150px;
         }
+<<<<<<< HEAD
 
         p {
+=======
+        p{
+>>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
             font-family: 'Miltonian Tattoo', cursive;
             color: white;
             margin-top: 50px;
             margin-left: 90px;
+<<<<<<< HEAD
             font-size: 36px;
         }
 
         #rua {
+=======
+            font-size: 36px; 
+        }
+        #rua{
+>>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
             margin-top: 20px;
             margin-left: 100px;
             height: 200px;

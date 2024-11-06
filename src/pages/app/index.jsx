@@ -2,9 +2,18 @@ import './index.scss';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
+<<<<<<< HEAD
 export default function App() {
   const [menuVisible, setMenuVisible] = useState(false);
 
+=======
+
+export default function App() {
+  // Estado para controlar se o menu está visível
+  const [menuVisible, setMenuVisible] = useState(false);
+
+  // Função para alternar a visibilidade do menu
+>>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
   };
@@ -18,12 +27,21 @@ export default function App() {
         </div>
 
         <nav className={menuVisible ? 'show-menu' : ''}>
+<<<<<<< HEAD
           <a href="#secaoHome">Home</a>
           <a href="#tituloSecao2">Sobre</a>
           <a href="#tituloSecao3">Galeria</a>
           <a href="#titulosecao4">Serviços</a>
           <a href="#tituloDepoimentos">Depoimentos</a>
           <a href="#titulo5">Agendar</a>
+=======
+          <a href="#">Home</a>
+          <a href="#tituloSecao2">Sobre</a>
+          <a href="#tituloSecao3">Galeria</a>
+          <a href="#">Serviços</a>
+          <a href="#">Depoimentos</a>
+          <a href="#">Agendar</a>
+>>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
         </nav>
 
         <Link to="/login">
@@ -149,9 +167,15 @@ export default function App() {
 <h1 id='titulo6'>Redes Sociais</h1>
 
 <div>
+<<<<<<< HEAD
 <p><i class="fa-brands fa-facebook"></i> @Vegas.studio</p>
  <p><i class="fa-brands fa-instagram"></i> @Vegas.Tatuagem</p>
  <p><i class="fa-brands fa-youtube"></i> Vegas Films</p>
+=======
+ <i>Facebook</i><p> @Vegas.studio</p>
+ <i>Instagram</i><p> @Vegas.Tatuagem</p>
+ <i>Youtube</i><p> Vegas Films</p>
+>>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
 </div>
 
 </section>
