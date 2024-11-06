@@ -1,0 +1,73 @@
+.pagina-adm{
+    .Link{
+        text-decoration: none;
+      }
+    background-image:url('./fundoAdm.jpg');
+    height: 100vh;
+    background-size: contain;
+
+    i
+    {
+    color: white;
+    font-size: 50px;
+    margin-left: 65%;
+    position: relative;
+    bottom: 80px;
+}
+#sair{
+    position: relative;
+    font-family: 'Miltonian Tattoo', cursive;
+    font-size: 50px;
+    color: white;
+    margin-left: 87%;
+    bottom: 80px;
+}
+
+img {
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.opcCima{
+  
+    margin-left: 300px;
+    display: flex;
+    width: 1450px;
+    height: 330px;
+    gap: 50px;
+}
+
+#painelTexto {
+    
+    background-image: url('./retratoTexto.png' );
+    background-size: cover;
+    width: 450px;
+    height: 300px;
+    display: flex; /* Utilizando Flexbox para centralizar */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o texto */
+    color: white;
+    
+}
+
+#painelTexto p {
+   
+    font-family: 'Miltonian Tattoo', cursive;
+    font-size: 32px;
+    font-weight: bold;
+
+
+}
+
+.opcbaixo{
+    
+    margin-left: 800px;
+}
+
+p:hover {
+   
+    color: rgb(200, 55, 89);
+ }
+
+}

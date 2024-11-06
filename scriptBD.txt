@@ -1,0 +1,13 @@
+create database Vegas;
+use Vegas;
+CREATE TABLE Adm (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    endereco VARCHAR(255)
+);
+INSERT INTO Adm (nome, email, senha, endereco) 
+VALUES ('Joselito', 'joselitotatu@gmail.com', '123', 'Rua peroba, 958, PQ. São Miguel
+CEP:02556-680');
+select * from Adm;

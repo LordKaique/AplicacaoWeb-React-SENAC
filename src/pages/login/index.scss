@@ -1,0 +1,79 @@
+.pagina-login{
+    font-family: 'Miltonian Tattoo', cursive;
+    background-image: url('./FundoLogin.webp');
+    height: 100vh;
+    
+    img{
+        margin-top: 2%;
+        margin-left: 40%;
+        width: 450px;
+        height: auto;
+    }
+
+
+    .PainelLogin {
+        width: 300px;
+        margin-left: 800px;
+        margin-top: 50px;
+        padding: 50px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        
+    }
+    
+    .PainelLogin h2 {
+        margin: 10px 0 5px;
+        font-size: 28px;
+        color: #333;
+    }
+    
+    .PainelLogin input {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+    
+    .opcoesLogin {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    
+    .opcoesLogin button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        color: white;
+        transition: background-color 0.3s;
+    }
+    
+    .opcoesLogin button:first-child {
+        background-color: #bbb;
+    }
+    
+    .opcoesLogin button:first-child:hover {
+        background-color: #999;
+    }
+    
+    .opcoesLogin button:last-child {
+        background-color: #4CAF50;
+    }
+    
+    .opcoesLogin button:last-child:hover {
+        background-color: #45A049;
+    }
+    
+    .PainelLogin p {
+        font-size: 22px;
+        color: #666;
+        margin-top: 15px;
+    }
+}

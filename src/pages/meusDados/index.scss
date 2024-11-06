@@ -1,0 +1,108 @@
+.pagina-Dados {
+    align-items: center;
+    text-align: center;
+    background-image: url('./fundoAdm.jpg');
+    height: 100vh;
+    background-size: contain;
+    color: white;
+
+
+    .linkCustomizado{
+        color: white;
+    }
+    img {
+        padding: 3%;
+        width: 250px;
+    }
+
+    i {
+        position: relative;
+        bottom: 80px;
+        margin-left: 65%;
+        font-size: 28px;
+    }
+
+    h1 {
+        font-family: 'Miltonian Tattoo', cursive;
+        font-size: 32px;
+        font-weight: bold;
+
+    }
+
+    .Menus {
+        height: 55%;
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+
+        .opcoesB {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px;
+            gap: 80px;
+
+            #StyleB {
+                font-family: 'Miltonian Tattoo', cursive;
+                width: 460px;
+                height: 60px;
+                cursor: pointer;
+                background: transparent;
+                outline: none;
+                transition: 1s ease-in-out;
+                border-radius: 25px;
+                background-color: white;
+                font-size: 38px;
+            }
+
+            #StyleB:hover {
+
+                transition: 0.2s ease-in-out;
+                background: #f74b4b;
+
+            }
+        }
+
+        .Dados {
+            width: 70%;
+            height: 40%;
+            display: grid;
+            gap: 10px;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto auto;
+
+
+            form{
+                background-color: #221d1d;
+                border-radius: 10px;
+                font-size: 28px;
+                width: 900px;
+                height: 350px;
+                p{
+                    margin: 0;
+                }
+                input{
+                    width: 680px;
+                    height: 50px;
+                    font-size: 30px;
+                }
+            }
+
+            p {
+                margin-left: 80px;
+                font-family: 'Miltonian Tattoo', cursive;
+                font-size: 36px;
+            }
+            button{
+                margin-left: 30px;
+                font-family: 'Miltonian Tattoo', cursive;
+                font-size: 36px;
+                border-radius: 10px;
+                background-color: rgb(255, 255, 255);
+
+            }
+        }
+
+
+    }
+}
