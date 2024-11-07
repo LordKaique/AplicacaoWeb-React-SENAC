@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import './index.scss';
 import { Link, useNavigate } from 'react-router-dom'; // Importando o useNavigate
 import React, { useState } from 'react';
@@ -7,7 +6,7 @@ import axios from 'axios';
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Inicializando o useNavigate
+  const navigate = useNavigate(); 
 
   const handleChangeEmail = (event) => {
     setEmail(event.target.value);
@@ -26,13 +25,12 @@ export default function Login() {
         { email, password }
       );
       
-      // Se o login for bem-sucedido, redireciona para a página /adm
       if (response.data.message === 'Login bem-sucedido') {
         localStorage.setItem('userEmail', email);
-        navigate('/adm'); // Redireciona para a página /adm
+        navigate('/adm'); 
       }
       
-      console.log(response.data); // Exibe a resposta no console
+      console.log(response.data); 
     } catch (error) {
       console.error('Erro no login:', error);
     }
@@ -59,7 +57,7 @@ export default function Login() {
           onChange={handleChangePassword}
         />
 
-        <div className="opcoesLogin"> {/* Troquei 'id' por 'className' */}
+        <div className="opcoesLogin">
           <Link to="/"><button>Voltar</button></Link>
           <button onClick={handleSubmit}>Login</button>
         </div>
@@ -69,14 +67,3 @@ export default function Login() {
     </div>
   );
 }
-=======
-import './index.scss'
-
-export default function Contato(){
-    return (
-        <div className="pagina-contato pagina" >
-<h1>Pagina de login</h1>
-        </div>
-    )
-}
->>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a

@@ -10,40 +10,37 @@ export default function MeusDados() {
         endereco: ''
     });
 
-    // Função para buscar os dados do usuário
     useEffect(() => {
         const fetchUserData = async () => {
-            const email = localStorage.getItem('userEmail');  // Recupera o e-mail do localStorage
+            const email = localStorage.getItem('userEmail');  
 
             if (!email) {
                 console.error('E-mail não encontrado no localStorage');
-                return;  // Se não encontrar o e-mail no localStorage, você pode redirecionar para a página de login ou exibir uma mensagem
+                return;  
             }
 
             try {
                 const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/user?email=${email}`);
-                setUsuario(response.data);  // Preenche os campos com os dados do usuário
+                setUsuario(response.data);  
             } catch (error) {
                 console.error('Erro ao obter dados do usuário:', error);
             }
         };
 
         fetchUserData();
-    }, []);// O array vazio garante que isso só será chamado uma vez, quando o componente for montado
+    }, []);
 
-    // Função para lidar com a mudança de valor nos campos de input
     const handleInputChange = (e) => {
         const { id, value } = e.target;
         setUsuario((prevState) => ({
             ...prevState,
-            [id]: value // Atualiza o valor do campo baseado no id
+            [id]: value 
         }));
     };
 
-    // Função para enviar os dados alterados ao backend
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const email = localStorage.getItem('userEmail'); // Recupera o e-mail do localStorage
+        const email = localStorage.getItem('userEmail'); 
 
         if (!email) {
             console.error('E-mail não encontrado no localStorage');
@@ -51,14 +48,13 @@ export default function MeusDados() {
         }
 
         try {
-            // Envia os dados atualizados para o backend
             const response = await axios.put(`${process.env.REACT_APP_API_URL}/api/user`, {
                 nome: usuario.nome,
-                email: usuario.email,  // O e-mail não será alterado, apenas enviado como filtro
+                email: usuario.email,  
                 endereco: usuario.endereco,
             });
             console.log('Dados atualizados:', response.data);
-            // Adicione uma mensagem de sucesso ou redirecionamento, se necessário
+            
         } catch (error) {
             console.error('Erro ao atualizar dados:', error);
         }
@@ -89,7 +85,7 @@ export default function MeusDados() {
                             type="text"
                             value={usuario.nome}
                             onChange={handleInputChange}
-                            placeholder={usuario.nome} // Preenche o placeholder com o valor atual
+                            placeholder={usuario.nome} 
                         />
                         <button type="submit">Alterar</button>
 
@@ -99,7 +95,7 @@ export default function MeusDados() {
                             type="text"
                             value={usuario.email}
                             onChange={handleInputChange}
-                            placeholder="E-mail" // Preenche o placeholder com o valor atual
+                            placeholder="E-mail" 
                         />
                         <button type="submit">Alterar</button>
 
@@ -109,7 +105,7 @@ export default function MeusDados() {
                             type="text"
                             value={usuario.endereco}
                             onChange={handleInputChange}
-                            placeholder={usuario.endereco} // Preenche o placeholder com o valor atual
+                            placeholder={usuario.endereco} 
                         />
                         <button type="submit">Alterar</button>
                     </form>

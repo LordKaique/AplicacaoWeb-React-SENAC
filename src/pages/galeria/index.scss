@@ -69,15 +69,12 @@
         margin-left: 80px;
         background-color: #1b1919;
         width: 1150px;
-        height: 500px;
-border-radius: 35px; 
+        height: 680px;
+        border-radius: 35px; 
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        /* 4 colunas de tamanho igual */
         grid-template-rows: repeat(2, 1fr);
-        /* 2 linhas de tamanho igual */
         gap: 10px;
-        /* espaço entre os itens do grid */
 
     }
     #GaleriaFotos {
@@ -86,5 +83,10 @@ border-radius: 35px;
     button{
         width: 120px;
         height: 45px;
+    }
+    .fotosalva{
+        width: 100px;
+        height: 100px;
+        background-size: contain;
     }
 }

@@ -2,18 +2,11 @@ import './index.scss';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-<<<<<<< HEAD
+
 export default function App() {
   const [menuVisible, setMenuVisible] = useState(false);
 
-=======
 
-export default function App() {
-  // Estado para controlar se o menu está visível
-  const [menuVisible, setMenuVisible] = useState(false);
-
-  // Função para alternar a visibilidade do menu
->>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
   };
@@ -27,21 +20,14 @@ export default function App() {
         </div>
 
         <nav className={menuVisible ? 'show-menu' : ''}>
-<<<<<<< HEAD
+
           <a href="#secaoHome">Home</a>
           <a href="#tituloSecao2">Sobre</a>
           <a href="#tituloSecao3">Galeria</a>
           <a href="#titulosecao4">Serviços</a>
           <a href="#tituloDepoimentos">Depoimentos</a>
           <a href="#titulo5">Agendar</a>
-=======
-          <a href="#">Home</a>
-          <a href="#tituloSecao2">Sobre</a>
-          <a href="#tituloSecao3">Galeria</a>
-          <a href="#">Serviços</a>
-          <a href="#">Depoimentos</a>
-          <a href="#">Agendar</a>
->>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
+
         </nav>
 
         <Link to="/login">
@@ -117,7 +103,7 @@ export default function App() {
         <h1 id='tituloDepoimentos' >Depoimentos</h1>
 
         <div className='caixaDepoimentos'>
-        <div id='Depoimento' >
+          <div id='Depoimento' >
             <h2 id='Name'>Nome</h2>
             <br />
             <p id='coment'>Comentario do cliente aqui</p>
@@ -143,50 +129,46 @@ export default function App() {
       <section className='secaoAgenda'>
 
         <h1 id='titulo5' > Agendar Serviço </h1>
-<h2>Agendar um Serviço</h2>
+        <h2>Agendar um Serviço</h2>
 
-<div id='FormularioServicos' >
-<div id='opc' >
-<p id='formText'>Nome:</p> <input type="text" />
-<p id='formText'>Serviço:</p> <input type="text" />
-<button>Agendar</button> 
-</div>
+        <div id='FormularioServicos' >
+          <div id='opc' >
+            <p id='formText'>Nome:</p> <input type="text" />
+            <p id='formText'>Serviço:</p> <input type="text" />
+            <button>Agendar</button>
+          </div>
 
-<div id='opc'>
-<p id='formText'>Seu Numero:</p> <input type="text" />
-<p id='formText'>Descrição:</p> <input type="text" />
-<p id='formText'>Entre em contato pelo E-mail:Vegastatto@tatto.com</p>
-</div>
+          <div id='opc'>
+            <p id='formText'>Seu Numero:</p> <input type="text" />
+            <p id='formText'>Descrição:</p> <input type="text" />
+            <p id='formText'>Entre em contato pelo E-mail:Vegastatto@tatto.com</p>
+          </div>
 
-</div>
+        </div>
 
 
       </section>
 
-<section className='secaoRedes' >
-<h1 id='titulo6'>Redes Sociais</h1>
+      <section className='secaoRedes' >
+        <h1 id='titulo6'>Redes Sociais</h1>
 
-<div>
-<<<<<<< HEAD
-<p><i class="fa-brands fa-facebook"></i> @Vegas.studio</p>
- <p><i class="fa-brands fa-instagram"></i> @Vegas.Tatuagem</p>
- <p><i class="fa-brands fa-youtube"></i> Vegas Films</p>
-=======
- <i>Facebook</i><p> @Vegas.studio</p>
- <i>Instagram</i><p> @Vegas.Tatuagem</p>
- <i>Youtube</i><p> Vegas Films</p>
->>>>>>> 9caa881acf81a83b1972772f3c794af5f353948a
-</div>
+        <div>
 
-</section>
+          <p><i class="fa-brands fa-facebook"></i> @Vegas.studio</p>
+          <p><i class="fa-brands fa-instagram"></i> @Vegas.Tatuagem</p>
+          <p><i class="fa-brands fa-youtube"></i> Vegas Films</p>
 
-<footer>
-  <img id='logoF' src="/assets/images/Vegaslogo.PNG" alt="logo" />
-  <p>Rua peroba, 958, PQ. São Miguel <br />
-  CEP:02556-680 <br />
-  Prox, Assemblia de Deus</p>
-  <img id='rua' src="/assets/images/Rua.PNG" alt="" />
-</footer>
+        </div>
+
+      </section>
+
+      <footer>
+        <img id='logoF' src="/assets/images/Vegaslogo.PNG" alt="logo" />
+        <p>Rua peroba, 958, PQ. São Miguel <br />
+          CEP:02556-680 <br />
+          Prox, Assemblia de Deus</p>
+        <img id='rua' src="/assets/images/Rua.PNG" alt="" />
+      </footer>
     </div>
   );
 }

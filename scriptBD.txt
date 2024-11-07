@@ -10,4 +10,12 @@ CREATE TABLE Adm (
 INSERT INTO Adm (nome, email, senha, endereco) 
 VALUES ('Joselito', 'joselitotatu@gmail.com', '123', 'Rua peroba, 958, PQ. São Miguel
 CEP:02556-680');
+
+CREATE TABLE fotos (
+    id INT AUTO_INCREMENT PRIMARY KEY,  
+    caminho VARCHAR(255) NOT NULL
+);
+
+
 select * from Adm;
+select * from fotos
