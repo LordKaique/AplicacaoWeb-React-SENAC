@@ -12,6 +12,15 @@ const PORT = 3001; // Porta do servidor API
 // Configuração do CORS para permitir acesso do frontend (porta 3000)
 app.use(cors({ origin: 'http://localhost:3000' }));
 
+// Configuração do CORS para aceitar o domínio do Netlify
+const corsOptions = {
+  origin: 'https://vegasink.netlify.app', // Substitua pelo seu domínio real do Netlify
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization'
+};
+
+app.use(cors(corsOptions));
+
 // Middleware para parsing do corpo da requisição
 app.use(express.json());
 
