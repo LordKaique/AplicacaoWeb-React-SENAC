@@ -1,15 +1,80 @@
 import './index.scss';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 export default function App() {
   const [menuVisible, setMenuVisible] = useState(false);
 
+  const [images, setImages] = useState([]);
+  const [depoimentos, setDepoimentos] = useState([]);
+
+
+  const [nome, setNome] = useState('');
+  const [numero, setNumero] = useState('');
+  const [servico, setServico] = useState('');
+  const [descricao, setDescricao] = useState('');
+  const [message, setMessage] = useState('');
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
   };
+
+
+  useEffect(() => {
+    // Função para buscar as imagens do banco de dados
+    const fetchImages = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/api/galeria');
+        setImages(shuffleArray(response.data)); // Embaralha as imagens antes de armazenar
+      } catch (error) {
+        console.error('Erro ao buscar as imagens:', error);
+      }
+    };
+
+    // Função para buscar os depoimentos do banco de dados
+    const fetchDepoimentos = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/api/depoimentos');
+        setDepoimentos(response.data); // Armazena os depoimentos
+      } catch (error) {
+        console.error('Erro ao buscar os depoimentos:', error);
+      }
+    };
+
+    fetchImages();
+    fetchDepoimentos();
+  }, []);
+
+  // Função para embaralhar o array de imagens
+  const shuffleArray = (array) => {
+    return array.sort(() => Math.random() - 0.5);
+  };
+
+  const handleAgendar = async () => {
+    try {
+      const response = await axios.post('http://localhost:3001/api/agendar', {
+        NomeCliente: nome,
+        numero: numero,
+        servico: servico,
+        descricao: descricao,
+      });
+  
+      setMessage(response.data.message);
+      alert("Agendamento concluído com sucesso!"); // Exibe o alerta após o agendamento
+  
+      // Limpa os campos do formulário após o envio
+      setNome('');
+      setNumero('');
+      setServico('');
+      setDescricao('');
+    } catch (error) {
+      console.error('Erro ao agendar serviço:', error);
+      setMessage('Erro ao agendar serviço');
+    }
+  };
+  
+
 
   return (
     <div className="App">
@@ -70,15 +135,15 @@ export default function App() {
         <h1 id='tituloSecao3' >GALERIA DE ARTE</h1>
 
         <div className='CaixadeImages'>
-          <img id='GaleriaImg' src="" alt="" />
-          <img id='GaleriaImg' src="" alt="" />
-          <img id='GaleriaImg' src="" alt="" />
-          <img id='GaleriaImg' src="" alt="" />
-          <img id='GaleriaImg' src="" alt="" />
-          <img id='GaleriaImg' src="" alt="" />
-          <img id='GaleriaImg' src="" alt="" />
-          <img id='GaleriaImg' src="" alt="" />
-
+          {images.slice(0, 8).map((image, index) => (
+            <img
+              key={index}
+              id='GaleriaImg'
+              src={image.caminho} // Certifique-se de que "caminho" seja o campo correto
+              alt={`Imagem ${index + 1}`}
+            />
+          ))
+          }
         </div>
       </section>
 
@@ -98,56 +163,66 @@ export default function App() {
         </div>
       </section>
 
-      <section className='secaoDepoimentos' >
+      <section className='secaoDepoimentos'>
+  <h1 id='tituloDepoimentos'>Depoimentos</h1>
 
-        <h1 id='tituloDepoimentos' >Depoimentos</h1>
+<div className='caixaDepoimentos'>
+  {depoimentos.length > 0 ? (
+    depoimentos.map((depoimento, index) => (
+      <div id='Depoimento' key={index}>
+        <h2 id='Name'>{depoimento.NomeDepoimento ? depoimento.NomeDepoimento : "Nome não disponível"}</h2>
+        <p id='coment'>{depoimento.comentario}</p>
+      </div>
+    ))
+  ) : (
+    <p>Carregando depoimentos...</p>
+  )}
+</div>
+</section>
 
-        <div className='caixaDepoimentos'>
-          <div id='Depoimento' >
-            <h2 id='Name'>Nome</h2>
-            <br />
-            <p id='coment'>Comentario do cliente aqui</p>
-          </div>
-          <div id='Depoimento' >
-            <h2 id='Name'>Nome</h2>
-            <br />
-            <p id='coment'>Comentario do cliente aqui</p>
-          </div>
-          <div id='Depoimento' >
-            <h2 id='Name'>Nome</h2>
-            <br />
-            <p id='coment'>Comentario do cliente aqui</p>
-          </div>
-          <div id='Depoimento' >
-            <h2 id='Name'>Nome</h2>
-            <br />
-            <p id='coment'>Comentario do cliente aqui</p>
-          </div>
-        </div>
-      </section>
 
-      <section className='secaoAgenda'>
 
-        <h1 id='titulo5' > Agendar Serviço </h1>
-        <h2>Agendar um Serviço</h2>
+<section className='secaoAgenda'>
+      <h1 id='titulo5'>Agendar Serviço</h1>
+      <h2>Agendar um Serviço</h2>
 
-        <div id='FormularioServicos' >
-          <div id='opc' >
-            <p id='formText'>Nome:</p> <input type="text" />
-            <p id='formText'>Serviço:</p> <input type="text" />
-            <button>Agendar</button>
-          </div>
-
-          <div id='opc'>
-            <p id='formText'>Seu Numero:</p> <input type="text" />
-            <p id='formText'>Descrição:</p> <input type="text" />
-            <p id='formText'>Entre em contato pelo E-mail:Vegastatto@tatto.com</p>
-          </div>
-
+      <div id='FormularioServicos'>
+        <div id='opc'>
+          <p id='formText'>Nome:</p>
+          <input
+            type="text"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+          />
+          <p id='formText'>Serviço:</p>
+          <input
+            type="text"
+            value={servico}
+            onChange={(e) => setServico(e.target.value)}
+          />
+          <button onClick={handleAgendar}>Agendar</button>
         </div>
 
+        <div id='opc'>
+          <p id='formText'>Seu Numero:</p>
+          <input
+            type="text"
+            value={numero}
+            onChange={(e) => setNumero(e.target.value)}
+          />
+          <p id='formText'>Descrição:</p>
+          <input
+            type="text"
+            value={descricao}
+            onChange={(e) => setDescricao(e.target.value)}
+          />
+          <p id='formText'>Entre em contato pelo E-mail:Vegastatto@tatto.com</p>
+        </div>
+      </div>
 
-      </section>
+      {message && <p>{message}</p>}
+    </section>
+
 
       <section className='secaoRedes' >
         <h1 id='titulo6'>Redes Sociais</h1>

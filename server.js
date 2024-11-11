@@ -12,8 +12,6 @@ const PORT = 3001; // Porta do servidor API
 // Configuração do CORS para permitir acesso do frontend (porta 3000)
 app.use(cors({ origin: 'http://localhost:3000' }));
 
-// Configuração do CORS para aceitar o domínio do Netlify
-app.use(cors()); // Aceita qualquer origem
 
 // Middleware para parsing do corpo da requisição
 app.use(express.json());
@@ -144,29 +142,130 @@ app.get('/api/galeria', (req, res) => {
   });
 });
 
-// Rota para excluir imagem
 app.delete('/api/excluir/:id', (req, res) => {
   const { id } = req.params;
-  
-  // Deletar do banco de dados
-  const query = 'DELETE FROM fotos WHERE id = ?';
-  db.query(query, [id], (err, result) => {
+
+  // Primeiro, obtenha o caminho do arquivo da imagem para excluí-lo do diretório
+  const querySelect = 'SELECT caminho FROM fotos WHERE id = ?';
+  db.query(querySelect, [id], (err, results) => {
+    if (err) {
+      console.error('Erro ao buscar imagem no banco de dados:', err);
+      return res.status(500).json({ message: 'Erro ao buscar imagem' });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'Imagem não encontrada' });
+    }
+
+    const caminhoImagem = results[0].caminho;
+    const caminhoCompleto = path.join(__dirname, 'public', caminhoImagem);
+
+    // Exclua o registro do banco de dados
+    const queryDelete = 'DELETE FROM fotos WHERE id = ?';
+    db.query(queryDelete, [id], (err, result) => {
       if (err) {
-          console.error('Erro ao excluir imagem do banco de dados:', err);
-          return res.status(500).json({ message: 'Erro ao excluir imagem do banco de dados' });
+        console.error('Erro ao excluir imagem do banco de dados:', err);
+        return res.status(500).json({ message: 'Erro ao excluir imagem do banco de dados' });
       }
 
-      // Deletar o arquivo da pasta uploads
-      const fs = require('fs');
-      const caminhoArquivo = `./uploads/${id}.jpg`; // ou o caminho correto do arquivo
-      fs.unlink(caminhoArquivo, (err) => {
-          if (err) {
-              console.error('Erro ao excluir o arquivo:', err);
-              return res.status(500).json({ message: 'Erro ao excluir o arquivo' });
-          }
+      // Exclua o arquivo da pasta
+      fs.unlink(caminhoCompleto, (err) => {
+        if (err) {
+          console.error('Erro ao excluir o arquivo:', err);
+          return res.status(500).json({ message: 'Erro ao excluir o arquivo' });
+        }
 
-          res.status(200).json({ message: 'Imagem excluída com sucesso' });
+        res.status(200).json({ message: 'Imagem excluída com sucesso' });
       });
+    });
+  });
+});
+
+
+// Rota PUT para atualizar os depoimentos
+app.put('/api/depoimentos', (req, res) => {
+  const { id, NomeDepoimento, comentario } = req.body;
+
+  if (!NomeDepoimento || !comentario) {
+    return res.status(400).json({ message: 'Nome e comentário são obrigatórios!' });
+  }
+
+  console.log("Atualizando depoimento", { id, NomeDepoimento, comentario }); // Debug para verificar os dados
+
+  const query = 'UPDATE depoimentos SET NomeDepoimento = ?, comentario = ? WHERE id = ?';
+
+  db.query(query, [NomeDepoimento, comentario, id], (err, result) => {
+    if (err) {
+      console.error('Erro ao atualizar depoimento:', err);
+      return res.status(500).json({ message: 'Erro ao atualizar depoimento' });
+    }
+
+    if (result.affectedRows > 0) {
+      return res.status(200).json({ message: 'Depoimento atualizado com sucesso!' });
+    } else {
+      return res.status(404).json({ message: 'Depoimento não encontrado!' });
+    }
+  });
+});
+
+// Rota GET para obter os depoimentos
+app.get('/api/depoimentos', (req, res) => {
+  db.query('SELECT * FROM depoimentos', (err, results) => {
+    if (err) {
+      console.error('Erro ao buscar depoimentos:', err);
+      return res.status(500).send('Erro ao buscar depoimentos');
+    }
+    res.json(results); // Retorna todos os depoimentos
+  });
+});
+
+// Rota para agendar um serviço
+app.post('/api/agendar', (req, res) => {
+  const { NomeCliente, numero, servico, descricao } = req.body;
+
+  if (!NomeCliente || !numero || !servico || !descricao) {
+    return res.status(400).json({ message: 'Todos os campos são obrigatórios!' });
+  }
+
+  const query = 'INSERT INTO servico (NomeCliente, numero, servico, descricao) VALUES (?, ?, ?, ?)';
+  db.query(query, [NomeCliente, numero, servico, descricao], (err, result) => {
+    if (err) {
+      console.error('Erro ao agendar serviço:', err);
+      return res.status(500).json({ message: 'Erro ao agendar serviço.' });
+    }
+
+    res.status(200).json({ message: 'Serviço agendado com sucesso!' });
+  });
+});
+//rota para ver os agendamentos
+app.get('/api/agendamentos', (req, res) => {
+  db.query('SELECT * FROM servico', (err, results) => {
+    if (err) {
+      console.error('Erro ao buscar agendamentos:', err);
+      return res.status(500).send('Erro ao buscar agendamentos');
+    }
+    res.json(results);
+  });
+});
+
+// Rota para excluir um agendamento
+app.delete('/api/agendamento/:id', (req, res) => {
+  const agendamentoId = req.params.id;
+
+  // Query para excluir o agendamento no banco de dados
+  const query = 'DELETE FROM servico WHERE id = ?';
+
+  db.query(query, [agendamentoId], (err, result) => {
+    if (err) {
+      console.error('Erro ao excluir o agendamento:', err);
+      return res.status(500).json({ message: 'Erro ao excluir agendamento' });
+    }
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: 'Agendamento não encontrado' });
+    }
+
+    return res.status(200).json({ message: 'Agendamento excluído com sucesso' });
   });
 });
 
