@@ -51,6 +51,7 @@ export default function App() {
     return array.sort(() => Math.random() - 0.5);
   };
 
+  //função para fazer os agendamentos
   const handleAgendar = async () => {
     try {
       const response = await axios.post('http://localhost:3001/api/agendar', {

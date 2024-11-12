@@ -1,4 +1,4 @@
-const mysql = require('mysql2');
+import mysql from 'mysql2';
 
 // Configurar a conexão com o MySQL
 const db = mysql.createConnection({
@@ -8,4 +8,4 @@ const db = mysql.createConnection({
     database: 'vegas'
 });
 
-module.exports = db; // Exportando a conexão
+export default db; // Exportando a conexão
