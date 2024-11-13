@@ -21,6 +21,11 @@ id int auto_increment primary key,
 NomeDepoimento varchar(255) not null,
 comentario varchar (255) not null
 );
+INSERT INTO depoimentos(nomeDepoimento,comentario)
+values("insira um nome","insira um comentario"),
+("insira um nome","insira um comentario"),
+("insira um nome","insira um comentario"),
+("insira um nome","insira um comentario");
 
 create table servico(
 id int auto_increment primary key,
