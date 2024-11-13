@@ -14,7 +14,7 @@ export default function Depoimentos() {
   // Função para buscar os depoimentos do banco de dados
   const buscarDepoimentos = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/depoimentos');
+      const response = await axios.get('http://4.172.208.52:3001/api/depoimentos');
       setDepoimentos(response.data);
     } catch (error) {
       console.error('Erro ao buscar depoimentos', error);
@@ -25,7 +25,7 @@ export default function Depoimentos() {
   const alterarDepoimento = async (id, nome, comentario) => {
     try {
       // Garante que estamos passando os valores corretos
-      await axios.put('http://localhost:3001/api/depoimentos', {
+      await axios.put('http://4.172.208.52:3001/api/depoimentos', {
         id,
         NomeDepoimento: nome,
         comentario

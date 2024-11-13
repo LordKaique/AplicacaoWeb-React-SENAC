@@ -43,7 +43,10 @@ LoginController.db = db;
 
 const servidor = express();
 servidor.use(express.json());
-servidor.use(cors({ origin: process.env.CLIENT_ORIGIN }));
+servidor.use(cors({ origin: 'http://4.172.208.52:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE']
+ }));
+
 
 // Usa os controladores, com `db` acessível a cada um
 servidor.use(AdmController);

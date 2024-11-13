@@ -25,7 +25,7 @@ export default function App() {
     // Função para buscar as imagens do banco de dados
     const fetchImages = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/galeria');
+        const response = await axios.get('http://4.172.208.52:3001/api/galeria');
         setImages(shuffleArray(response.data)); // Embaralha as imagens antes de armazenar
       } catch (error) {
         console.error('Erro ao buscar as imagens:', error);
@@ -35,7 +35,7 @@ export default function App() {
     // Função para buscar os depoimentos do banco de dados
     const fetchDepoimentos = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/depoimentos');
+        const response = await axios.get('http://4.172.208.52:3001/api/depoimentos');
         setDepoimentos(response.data); // Armazena os depoimentos
       } catch (error) {
         console.error('Erro ao buscar os depoimentos:', error);
@@ -54,7 +54,7 @@ export default function App() {
   //função para fazer os agendamentos
   const handleAgendar = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/api/agendar', {
+      const response = await axios.post('http://4.172.208.52:3001/api/agendar', {
         NomeCliente: nome,
         numero: numero,
         servico: servico,

@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import App from './pages/app/index';
-import Login from './pages/login';
-import NaoEncontrado from './pages/naoEncontrado';
+import Login from './pages/login/index';
+import NaoEncontrado from './pages/naoEncontrado/index';
 
-import Adm from './pages/adm';
-import MeusDados from './pages/meusDados';
-import Galeria from './pages/galeria';
-import Depoimentos from './pages/depoimentos';
-import Financas from './pages/financa';
+import Adm from './pages/adm/index';
+import MeusDados from './pages/meusDados/index';
+import Galeria from './pages/galeria/index';
+import Depoimentos from './pages/depoimentos/index';
+import Financas from './pages/financa/index';
 
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';

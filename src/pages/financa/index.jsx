@@ -10,7 +10,7 @@ export default function Financas() {
     useEffect(() => {
         const fetchAgendamentos = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/api/agendamentos');
+                const response = await axios.get('http://4.172.208.52:3001/api/agendamentos');
                 setAgendamentos(response.data); // Armazena os agendamentos no estado
             } catch (error) {
                 console.error('Erro ao buscar agendamentos:', error);
@@ -23,7 +23,7 @@ export default function Financas() {
     // Função para excluir agendamento
     const excluirAgendamento = async (id) => {
         try {
-            await axios.delete(`http://localhost:3001/api/agendamento/${id}`);
+            await axios.delete(`http://4.172.208.52:3001/api/agendamento/${id}`);
             // Atualiza o estado para remover o agendamento da lista local sem recarregar a página
             setAgendamentos((prevAgendamentos) => 
                 prevAgendamentos.filter((agendamento) => agendamento.id !== id)

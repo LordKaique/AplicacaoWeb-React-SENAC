@@ -17,7 +17,7 @@ export default function MinhaGaleria() {
         formData.append('image', e.target.files[0]);
 
         try {
-            await axios.post('http://localhost:3001/api/upload', formData, {
+            await axios.post('http://4.172.208.52:3001/api/upload', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             buscarGaleria(); // Atualiza a galeria
@@ -28,7 +28,7 @@ export default function MinhaGaleria() {
 
     const buscarGaleria = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/api/galeria');
+            const response = await axios.get('http://4.172.208.52:3001/api/galeria');
             setGaleria(response.data);
         } catch (error) {
             console.error('Erro ao buscar as imagens', error);
@@ -39,7 +39,7 @@ export default function MinhaGaleria() {
         const confirmDelete = window.confirm('Tem certeza de que deseja excluir esta imagem?');
         if (confirmDelete) {
             try {
-                await axios.delete(`http://localhost:3001/api/excluir/${id}`);
+                await axios.delete(`http://4.172.208.52:3001/api/excluir/${id}`);
                 // Remove a imagem localmente sem precisar buscar novamente
                 setGaleria((prevGaleria) => prevGaleria.filter(foto => foto.id !== id));
             } catch (error) {
@@ -86,7 +86,7 @@ export default function MinhaGaleria() {
                         galeria.map((foto) => (
                             <div key={foto.id} id='GaleriaFotos'>
                                 <img
-                                    src={`http://localhost:3001${foto.caminho}`}
+                                    src={`http://4.172.208.52:3001${foto.caminho}`}
                                     alt={`Foto ${foto.id}`}
                                 />
                                 <button onClick={() => excluirImagem(foto.id)}>Excluir</button>
