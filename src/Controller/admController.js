@@ -4,7 +4,7 @@ import { Router } from "express";
 const endpoints = Router();
 
 // Rota para verificar os dados do usuário
-endpoints.get('/api/user', (req, res) => {
+endpoints.get('/api/user',  (req, res) => {
   const userId = 1;  // ID fixo do único usuário (no seu caso o ID é 1)
 
   endpoints.db.query('SELECT nome, email, endereco FROM Adm WHERE id = ?', [userId], (err, results) => {

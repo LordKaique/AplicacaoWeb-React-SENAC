@@ -25,8 +25,10 @@ export default function Login() {
         { email, password }
       );
       
-      if (response.data.message === 'Login bem-sucedido') {
+      if (response.data.auth === true) {
         localStorage.setItem('userEmail', email);
+        localStorage.setItem('token', response.data.token);
+
         navigate('/adm'); 
       }
       

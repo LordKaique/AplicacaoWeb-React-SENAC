@@ -11,7 +11,7 @@ export default function Adm() {
             <p id='sair'>Sair</p>
             </Link>
             <div className='opcCima' >
-                <Link className='Link' to={'/depoimentos'} >
+                <Link className='Link'  to={'/depoimentos'} >
                     <div id='painelTexto' >
                         <p>Editar Depoimentos</p>
                     </div>

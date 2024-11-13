@@ -16,6 +16,27 @@ CREATE TABLE fotos (
     caminho VARCHAR(255) NOT NULL
 );
 
+create table depoimentos(
+id int auto_increment primary key,
+NomeDepoimento varchar(255) not null,
+comentario varchar (255) not null
+);
 
+create table servico(
+id int auto_increment primary key,
+NomeCliente varchar(255) not null,
+numero BIGINT not null,
+servico varchar(255)not null,
+descricao varchar (255) not null
+);
+
+ALTER TABLE servico
+MODIFY COLUMN numero BIGINT NOT NULL;
+
+select * from servico;
+select * from depoimentos;
+select * from fotos;
 select * from Adm;
-select * from fotos
+
+
+
